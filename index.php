@@ -32,6 +32,14 @@ if ($query)
       'facet' => 'true',
       'sort' => 'pageRankFile desc'
     );
+  } else {
+
+    $additionalParameters = array(
+      'fq' => '',
+      'facet' => 'true',
+      
+    );
+
   }
 
     
@@ -151,11 +159,11 @@ if ($query)
          
       }
 
-    }
-
+      $url = "http://localhost/csci572/index.php?q=" . htmlentities($correct_query) . "&method=" . $_GET['method']; 
     ?>
-    <a href="http://localhost/~kuanhanchen/csci572/index.php?q=<?php echo htmlentities($correct_query); ?> "><?php echo $correct_query; ?></a></h3>
+    <a href="$url"><?php echo $correct_query; ?></a></h3>
   
+    <?php } ?>
     
     <div>Results <?php echo $start; ?> - <?php echo $end;?> of <?php echo $total; ?>:</div>
 
@@ -228,14 +236,14 @@ if ($query)
           <tr>
             
             <td><strong>Title: </strong></td>
-            <td><a href="<?php echo $url; ?>" id="title"><?php echo $doc->title ? $doc->title : "None"; ?></a></td>
+            <td><a href="<?php echo $url; ?>" id="title" target="_blank"><?php echo $doc->title ? $doc->title : "None"; ?></a></td>
 
           </tr>
         
           <tr>
             
             <td><strong>Url: </strong></td>
-            <td><a href="<?php echo $url; ?>" id="url"><?php echo $url; ?></a></td>
+            <td><a href="<?php echo $url; ?>" id="url" target="_blank"><?php echo $url; ?></a></td>
           
           </tr>
 
